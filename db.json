@@ -1,0 +1,25 @@
+{
+  "users": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Galaxy S23",
+      "brandId": 1,
+      "categoryId": 1,
+      "price": 4999,
+      "stock": 12
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Phones"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Samsung"
+    }
+  ]
+}

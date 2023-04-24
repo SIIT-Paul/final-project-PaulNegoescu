@@ -1,0 +1,52 @@
+:root {
+  --primary-color: #025e73;
+  --primary-color-dark: #011f26;
+  --secondary-color: #bfb78f;
+  --secondary-color-dark: #a5a692;
+  --accent-color: #f2a71b;
+  --error-color: #d56161;
+  --error-color-dark: #671717;
+  --success-color: #8ad94d;
+  --success-color-dark: #365c21;
+
+  --text-color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h5 {
+  color: var(--primary-color);
+}
+
+input:is(:not([type='checkbox'], [type='radio'])),
+textarea {
+  padding: 0.3rem 0.2rem;
+
+  border: 1px solid var(--primary-color-dark);
+  border-radius: 3px;
+  font-family: inherit;
+}
+
+input {
+  accent-color: var(--primary-color);
+}
+
+.align-self-top {
+  align-self: start;
+}

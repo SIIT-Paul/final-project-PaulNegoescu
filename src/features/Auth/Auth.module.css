@@ -1,0 +1,75 @@
+.authForm {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0.3rem;
+
+  width: 400px;
+}
+
+.authForm label {
+  text-align: right;
+  margin-top: 0.2rem;
+}
+
+.authForm
+  input:where(
+    [type='text'],
+    [type='password'],
+    [type='number'],
+    [type='email'],
+    [type='url']
+  ) {
+  --border-color: var(--primary-color);
+  padding: 0.2rem 0.4rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+}
+
+.authForm
+  input:where(
+    [type='text'],
+    [type='password'],
+    [type='number'],
+    [type='email'],
+    [type='url']
+  ):focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.submitBtn {
+  grid-column-start: 2;
+}
+
+.successMessage,
+.formError {
+  --txt-color: var(--error-color-dark);
+  --bg-color: var(--error-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  margin: 0.5rem 1rem;
+
+  background-color: var(--bg-color);
+  border: 1px solid var(--txt-color);
+  border-radius: 5px;
+  color: var(--txt-color);
+}
+
+.successMessage {
+  --txt-color: var(--success-color-dark);
+  --bg-color: var(--success-color);
+}
+
+.inputError {
+  grid-column-start: 2;
+
+  margin: 0;
+  color: var(--error-color);
+}
+
+.authForm .hasError {
+  --border-color: var(--error-color);
+}
