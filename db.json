@@ -6,6 +6,13 @@
       "firstName": "Paul",
       "lastName": "Negoescu",
       "id": 1
+    },
+    {
+      "email": "q@q.com",
+      "password": "$2a$10$N8x02IdHuQarn.qTZ6wOaut8mY3FZErbuKQzDjpgp.PIwRwYptle2",
+      "firstName": "Paul",
+      "lastName": "Negoescu",
+      "id": 2
     }
   ],
   "products": [
@@ -13,6 +20,7 @@
       "id": 1,
       "name": "Galaxy S23",
       "picture": "https://lcdn.altex.ro/resize/media/catalog/product/t/e/2bd48d28d1c32adea0e55139a4e6434a/telefon_samsung_galaxy_s23_ultra_phantom_black_01_d653fc35.jpg",
+      "description": "",
       "price": 4999,
       "stock": 12,
       "brandId": 1,
