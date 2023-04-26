@@ -1,0 +1,23 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.products h1 {
+  grid-column: 1/-1;
+}
+
+.products img {
+  max-width: 100%;
+}
+
+.products article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products a {
+  text-decoration: none;
+}

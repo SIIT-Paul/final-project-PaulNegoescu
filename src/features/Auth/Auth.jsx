@@ -8,7 +8,7 @@ import {
 import clsx from 'clsx';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { configureApi, ApiError } from '../../helpers/api.helper';
+import { configureApi, ApiError } from '~/helpers/api.helper';
 import { Button } from '../../components/Button/Button';
 
 import styles from './Auth.module.css';

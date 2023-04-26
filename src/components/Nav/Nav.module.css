@@ -1,0 +1,32 @@
+.main-menu a:hover,
+.main-menu .active {
+  color: var(--accent-color);
+}
+
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.main-menu menu {
+  display: flex;
+  gap: 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.main-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.pushRight {
+  margin-left: auto;
+}
