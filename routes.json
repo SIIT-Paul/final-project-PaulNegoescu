@@ -1,1 +1,6 @@
-{}
+{
+  "/users*": "/600/users$1",
+  "/products*": "/644/products$1",
+  "/brands*": "/664/brands$1",
+  "/categories*": "/664/categories$1"
+}

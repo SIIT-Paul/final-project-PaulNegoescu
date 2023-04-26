@@ -18,6 +18,7 @@
   "products": [
     {
       "id": 1,
+      "userId": 2,
       "name": "Galaxy S23",
       "picture": "https://lcdn.altex.ro/resize/media/catalog/product/t/e/2bd48d28d1c32adea0e55139a4e6434a/telefon_samsung_galaxy_s23_ultra_phantom_black_01_d653fc35.jpg",
       "description": "",
@@ -25,6 +26,28 @@
       "stock": 12,
       "brandId": 1,
       "categoryId": 1
+    },
+    {
+      "categoryId": 1,
+      "brandId": 1,
+      "stock": 3,
+      "price": 5999,
+      "description": "The newest and coolest iPhone adasd ad asdasdsdasd asdas dasd asd asd asd asd asd asdasd asda sda dasd asd",
+      "picture": "https://www.mobilepagla.com/wp-content/uploads/2021/05/Apple-iPhone-14-Pro-Max.jpg",
+      "name": "iPhone 14 Max",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "categoryId": 1,
+      "brandId": 1,
+      "stock": 124,
+      "price": 312312,
+      "description": "qweqwe qwddaeqw The newest and coolest iPhone adasd ad asdasdsdasd asdas dasd asd asd asd asd asd asdasd asda sda dasd asd",
+      "picture": "https://www.mobilepagla.com/wp-content/uploads/2021/05/Apple-iPhone-14-Pro-Max.jpg",
+      "name": "test",
+      "userId": 1,
+      "id": 3
     }
   ],
   "category": [

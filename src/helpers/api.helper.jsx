@@ -29,14 +29,35 @@ export function configureApi(entity) {
       path = `/${path}`;
     }
 
+    if (options.accessToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${options.accessToken}`,
+      };
+
+      delete options.accessToken;
+    }
+
     return fetch(`${apiUrl}/${entity}${path}${restOfUrl}`, options).then(
       handleResponse
     );
   }
 
   function update(id, body, options = {}) {
+    options.headers = {
+      ...options.headers,
+      ...headers,
+    };
+    if (options.accessToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${options.accessToken}`,
+      };
+
+      delete options.accessToken;
+    }
+
     return fetch(`${apiUrl}/${entity}/${id}`, {
-      headers,
       body: JSON.stringify(body),
       method: 'PATCH',
       ...options,
@@ -44,8 +65,20 @@ export function configureApi(entity) {
   }
 
   function add(body, options = {}) {
+    options.headers = {
+      ...options.headers,
+      ...headers,
+    };
+    if (options.accessToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${options.accessToken}`,
+      };
+
+      delete options.accessToken;
+    }
+
     return fetch(`${apiUrl}/${entity}`, {
-      headers,
       body: JSON.stringify(body),
       method: 'POST',
       ...options,
@@ -53,6 +86,18 @@ export function configureApi(entity) {
   }
 
   function remove(id, options = {}) {
+    options.headers = {
+      ...options.headers,
+    };
+    if (options.accessToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${options.accessToken}`,
+      };
+
+      delete options.accessToken;
+    }
+
     return fetch(`${apiUrl}/${entity}/${id}`, {
       method: 'DELETE',
       ...options,

@@ -14,7 +14,8 @@
 
 .main-menu menu {
   display: flex;
-  gap: 1rem;
+  gap: 0.3rem;
+  align-items: center;
 
   margin: 0;
   padding: 0;
@@ -25,6 +26,7 @@
 .main-menu a {
   color: #fff;
   text-decoration: none;
+  padding: 0.5rem 1rem;
 }
 
 .pushRight {

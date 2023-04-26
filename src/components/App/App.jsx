@@ -1,12 +1,18 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { Auth, AuthContextProvider, ProductList } from '~/features';
+import {
+  AddProduct,
+  Auth,
+  AuthContextProvider,
+  ProductDetails,
+  ProductList,
+} from '~/features';
 import { Nav } from '~/components';
-import { ProductDetails } from '~/features/Products/ProductDetails';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 
 export function App() {
   return (
@@ -16,6 +22,14 @@ export function App() {
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/products/:id" element={<ProductDetails />} />
+          <Route
+            path="/products/add"
+            element={
+              <ProtectedRoute>
+                <AddProduct />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/login" element={<Auth />} />
           <Route path="/register" element={<Auth />} />
         </Routes>

@@ -2,7 +2,6 @@ import {
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
 } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,10 +9,9 @@ import { object, ref, string } from 'yup';
 
 import { configureApi } from '~/helpers/api.helper';
 import { Button } from '../../components/Button/Button';
-
-import styles from './Auth.module.css';
 import { useAuth } from './Auth.context';
 import { toast } from 'react-toastify';
+import { Input } from '~/components';
 
 const { add: apiRegister } = configureApi('register');
 const { add: apiLogin } = configureApi('login');
@@ -38,7 +36,7 @@ const registerSchema = object({
 });
 
 export function Auth() {
-  const { pathname: path } = useLocation();
+  const { pathname: path, state } = useLocation();
   const isRegister = path === '/register';
 
   const {
@@ -72,84 +70,56 @@ export function Auth() {
       });
 
       login(auth);
-      navigate('/');
+      navigate(state.from ? state.from : '/');
     } catch (e) {
       throw e;
     }
   }
 
+  const bindToHookForm = {
+    register,
+    errors,
+  };
+
   return (
     <>
       <h1>{isRegister ? 'Register' : 'Login'}</h1>
-      <form className={styles.authForm} onSubmit={handleSubmit(handleAuth)}>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          className={clsx({ [styles.hasError]: errors.email })}
-          {...register('email')}
-        />
-        {errors.email && (
-          <p className={styles.inputError}>{errors.email.message}</p>
-        )}
-
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
+      <form className="pageForm" onSubmit={handleSubmit(handleAuth)}>
+        <Input type="email" name="email" label="Email" {...bindToHookForm} />
+        <Input
           type="password"
-          className={clsx({ [styles.hasError]: errors.password })}
-          {...register('password')}
+          name="password"
+          label="Password"
+          {...bindToHookForm}
         />
-        {errors.password && (
-          <p className={styles.inputError}>{errors.password.message}</p>
-        )}
 
         {isRegister && (
           <>
-            <label htmlFor="retype_password">Retype Password</label>
-            <input
-              id="retype_password"
+            <Input
               type="password"
-              className={clsx({ [styles.hasError]: errors.retype_password })}
-              {...register('retype_password')}
+              name="retype_password"
+              label="Retype Password"
+              {...bindToHookForm}
             />
-            {errors.retype_password && (
-              <p className={styles.inputError}>
-                {errors.retype_password.message}
-              </p>
-            )}
-
-            <label htmlFor="firstName">First Name</label>
-            <input
-              id="firstName"
+            <Input
               type="text"
-              className={clsx({ [styles.hasError]: errors.firstName })}
-              {...register('firstName')}
+              name="firstName"
+              label="First Name"
+              {...bindToHookForm}
             />
-            {errors.firstName && (
-              <p className={styles.inputError}>{errors.firstName.message}</p>
-            )}
-
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              id="lastName"
+            <Input
               type="text"
-              className={clsx({ [styles.hasError]: errors.lastName })}
-              {...register('lastName')}
+              name="lastName"
+              label="Last Name"
+              {...bindToHookForm}
             />
-            {errors.lastName && (
-              <p className={styles.inputError}>{errors.lastName.message}</p>
-            )}
           </>
         )}
-
-        <div className={styles.submitBtn}>
-          <Button variant="primary">
-            {isRegister ? 'Register' : 'Login'}
-            {isRegister && <UserPlusIcon width={20} />}
-            {!isRegister && <ArrowRightOnRectangleIcon width={20} />}
-          </Button>
-        </div>
+        <Button className="submitBtn" variant="primary">
+          {isRegister ? 'Register' : 'Login'}
+          {isRegister && <UserPlusIcon width={20} />}
+          {!isRegister && <ArrowRightOnRectangleIcon width={20} />}
+        </Button>
       </form>
     </>
   );

@@ -34,6 +34,30 @@ h5 {
   color: var(--primary-color);
 }
 
+input:where(
+    [type='text'],
+    [type='password'],
+    [type='number'],
+    [type='email'],
+    [type='url']
+  ) {
+  --border-color: var(--primary-color);
+  padding: 0.2rem 0.4rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+}
+
+input:where(
+    [type='text'],
+    [type='password'],
+    [type='number'],
+    [type='email'],
+    [type='url']
+  ):focus {
+  outline: 2px solid var(--primary-color);
+}
+
 input:is(:not([type='checkbox'], [type='radio'])),
 textarea {
   padding: 0.3rem 0.2rem;
@@ -45,6 +69,34 @@ textarea {
 
 input {
   accent-color: var(--primary-color);
+}
+
+label {
+  text-align: right;
+  margin-top: 0.2rem;
+}
+
+.inputError {
+  grid-column-start: 2;
+
+  margin: 0;
+  color: var(--error-color);
+}
+
+.hasError {
+  --border-color: var(--error-color);
+}
+
+.submitBtn {
+  grid-column-start: 2;
+}
+
+.pageForm {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0.3rem;
+
+  width: 400px;
 }
 
 .align-self-top {

@@ -31,8 +31,13 @@ export function Nav() {
       <Link to="/">My Cool Shop</Link>
       <menu>
         <li>
-          <BrandNavLink to="/">Products</BrandNavLink>
+          <BrandNavLink to="/">Ads</BrandNavLink>
         </li>
+        {user && (
+          <li>
+            <BrandNavLink to="/products/add">Post an Ad</BrandNavLink>
+          </li>
+        )}
       </menu>
 
       <menu>
